@@ -12,7 +12,7 @@ class GermanTranslatorTest {
     void aPositiveTest() {
         GermanTranslator translator = new GermanTranslator();
         String value = translator.translateNumber(0);
-        assertEquals(value, "null");
+        assertEquals(value, "Übersetzung der Zahl " + "0" + " nicht möglich / version:"+ translator.version);
     }
     @Test
     void translateNumberTest(){
