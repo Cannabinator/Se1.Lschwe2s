@@ -14,4 +14,14 @@ public class Container {
             memberListe.add(member);
         }
     }
+    public String deleteMember(Integer ID){
+        //Ohne eine Exception muss ich den rueckgabewewert ueberpruefen um fehler auszuschliessen.
+        for(Member o:memberListe){
+            if(o.getID()==ID){
+              memberListe.remove(o);
+              return "Member deleted";
+            }
+        }
+        return ("Kein Member mit"+ID+"bekannt");
+    }
 }
