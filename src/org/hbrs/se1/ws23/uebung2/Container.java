@@ -24,4 +24,9 @@ public class Container {
         }
         return ("Kein Member mit"+ID+"bekannt");
     }
+    public void dump(){
+        for(Member o:memberListe){
+            System.out.println(o.toString());
+        }
+    }
 }
