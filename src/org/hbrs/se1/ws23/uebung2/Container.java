@@ -29,4 +29,7 @@ public class Container {
             System.out.println(o.toString());
         }
     }
+    public int size(){
+        return memberListe.size();
+    }
 }
