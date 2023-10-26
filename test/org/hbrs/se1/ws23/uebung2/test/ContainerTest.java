@@ -14,7 +14,7 @@ public class ContainerTest {
 
     @BeforeEach
     void setUp() {
-        container = new Container();
+        container = container.getInstance();
     }
 
     @Test

@@ -2,8 +2,18 @@ package org.hbrs.se1.ws23.uebung2;
 import org.hbrs.se1.ws23.uebung2.Member;
 
 import java.util.ArrayList;
-public class Container {
+public final class Container {
     public ArrayList<Member> memberListe=new ArrayList();
+    private static Container container=null;
+    private Container(){};
+
+    public static Container getInstance(){
+        if(container==null){
+            container=new Container();
+
+        }
+        return container;
+    }
 
 
     public void addMember(Member member) throws ContainerException {
