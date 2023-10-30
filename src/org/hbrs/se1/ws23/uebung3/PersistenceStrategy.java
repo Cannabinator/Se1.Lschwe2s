@@ -1,5 +1,6 @@
 package org.hbrs.se1.ws23.uebung3;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ import java.util.List;
  *
  * @param <E>
  */
-public interface PersistenceStrategy<E> {
+public interface PersistenceStrategy<E>{
     //lol.java
     public void openConnection() throws PersistenceException;
     public void closeConnection() throws PersistenceException;

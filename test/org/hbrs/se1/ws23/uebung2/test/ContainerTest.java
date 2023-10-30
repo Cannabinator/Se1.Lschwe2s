@@ -1,4 +1,5 @@
 package org.hbrs.se1.ws23.uebung2.test;
+
 import org.hbrs.se1.ws23.uebung2.ConcreteMember;
 import org.hbrs.se1.ws23.uebung2.Container;
 import org.hbrs.se1.ws23.uebung2.ContainerException;
@@ -6,8 +7,8 @@ import org.hbrs.se1.ws23.uebung2.Member;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ContainerTest {
     private Container container;
