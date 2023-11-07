@@ -1,7 +1,8 @@
 package org.hbrs.se1.ws23.uebung2;
 import org.hbrs.se1.ws23.uebung2.Member;
 
-import java.util.ArrayList;
+import java.util.*;
+
 public final class Container {
     public ArrayList<Member> memberListe=new ArrayList();
     private static Container container=null;
@@ -41,5 +42,8 @@ public final class Container {
     }
     public int size(){
         return memberListe.size();
+    }
+    public List<Member> getCurrentList(){
+        return memberListe;
     }
 }
