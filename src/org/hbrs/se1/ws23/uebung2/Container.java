@@ -1,5 +1,7 @@
 package org.hbrs.se1.ws23.uebung2;
 import org.hbrs.se1.ws23.uebung2.Member;
+import org.hbrs.se1.ws23.uebung3.PersistenceException;
+import org.hbrs.se1.ws23.uebung3.PersistenceStrategy;
 
 import java.util.*;
 
@@ -7,7 +9,7 @@ public final class Container {
     public ArrayList<Member> memberListe=new ArrayList();
     private static Container container=null;
     private Container(){};
-
+    private PersistenceStrategy persistenceStrategyContainer;
     public static Container getInstance(){
         if(container==null){
             container=new Container();
@@ -45,5 +47,14 @@ public final class Container {
     }
     public List<Member> getCurrentList(){
         return memberListe;
+    }
+    public void setStrategy(PersistenceStrategy persistenceStrategy){
+        this.persistenceStrategyContainer=persistenceStrategy;
+    }
+    public void store()throws PersistenceException{
+        persistenceStrategyContainer.save(memberListe);
+    }
+    public void load()throws PersistenceException{
+        memberListe= (ArrayList<Member>) persistenceStrategyContainer.load();
     }
 }
