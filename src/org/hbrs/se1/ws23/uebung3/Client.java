@@ -26,4 +26,10 @@ public class Client {
              throw new RuntimeException(e);
          }
      }
+     public void setContainer(Container cont){
+         this.container=cont;
+     }
+     public void setMemberView(MemberView memberV){
+         this.memberView=memberV;
+     }
 }
