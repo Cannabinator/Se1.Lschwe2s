@@ -57,4 +57,5 @@ public final class Container {
     public void load()throws PersistenceException{
         memberListe= (ArrayList<Member>) persistenceStrategyContainer.load();
     }
+
 }
