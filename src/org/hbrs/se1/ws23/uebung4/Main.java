@@ -1,11 +1,18 @@
 package org.hbrs.se1.ws23.uebung4;
 
 import org.hbrs.se1.ws23.uebung2.Container;
+import org.hbrs.se1.ws23.uebung2.ContainerException;
+import org.hbrs.se1.ws23.uebung2.Member;
+import org.hbrs.se1.ws23.uebung3.PersistenceException;
+import org.hbrs.se1.ws23.uebung3.PersistenceStrategyStream;
 
-import java.util.Objects;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner scanner;
+    static Container container;
+    static int counter=0;
     public static void main(String []args){
         scanner = new Scanner(System.in);
         container=Container.getInstance();

@@ -10,9 +10,9 @@ public class Main {
         Container container;
         container=Container.getInstance();
         container.setStrategy(new PersistenceStrategyStream<Member>());
-         Client client;
+        Client client;
         client = new Client();
         client.setContainer(container);
-         client.setMemberView(new MemberView());
+        client.setMemberView(new MemberView());
     }
 }
