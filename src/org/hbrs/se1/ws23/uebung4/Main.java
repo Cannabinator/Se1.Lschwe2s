@@ -81,12 +81,12 @@ public class Main {
                         System.out.println("all commands in lowercase");
                         System.out.println("[command] [parameter]");
                         System.out.println("commands are :");
-                        System.out.println("to create a new US just type:enter");
-                        System.out.println("to store in Container:store");
-                        System.out.println("to load stored files:load");
-                        System.out.println("to show all US in order of importance:dump");
-                        System.out.println("to search for all US with same project, project as parameter:search [param]");
-                        System.out.println("to exit the console type:exit");
+                        System.out.println(">'enter' to create a new User Story");
+                        System.out.println(">'store' to save files ");
+                        System.out.println(">'load' to load saved files");
+                        System.out.println(">'dump' to dump all user Stories ranked by importance");
+                        System.out.println(">'search [param]'to search for all US with same project, project as parameter");
+                        System.out.println(">'exit' to exit the console type:");
                         break;
                     case "exit":
                         System.out.println("wollen sie das programm wirklich beenden ohne zu speichern (Y/N)?");
