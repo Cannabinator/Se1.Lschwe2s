@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 public class ConcreteMember implements Member, Serializable {
     Integer ID;
+    Integer prio;
     public ConcreteMember(Integer a){
         this.ID=a;
     }
@@ -18,4 +19,7 @@ public class ConcreteMember implements Member, Serializable {
     public String toString(){
         return "Member (ID = "+this.ID+")";
     }
+    @Override
+    public Integer returnPrio(){return this.prio;}
 }
+

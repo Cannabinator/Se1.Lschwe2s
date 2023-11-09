@@ -3,17 +3,18 @@ package org.hbrs.se1.ws23.uebung4;
 import org.hbrs.se1.ws23.uebung2.Member;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 public class UserStory implements Member, Serializable {
     private final int userStoryID;
     String beschreibung;
     String projekt;
-    int mehrwert;
-    int strafe;
-    int aufwand;
-    int risiko;
-    int prio;
+    Integer mehrwert;
+    Integer strafe;
+    Integer aufwand;
+    Integer risiko;
+    Integer prio;
 
     public UserStory(int userStoryID){
         this.userStoryID=userStoryID;
@@ -58,7 +59,19 @@ public class UserStory implements Member, Serializable {
     }
     @Override
     public String toString(){
-        return "Beschreibung:"+beschreibung+"Projekt:"+projekt+"Mehrw/Str/Aufw/Ris:"+mehrwert+"/"+strafe+"/"+aufwand+"/"+risiko;
+        return "Beschreibung:"+beschreibung+"\nProjekt:"+projekt+"UserID:"+userStoryID+"\nMehrw/Str/Aufw/Ris:"+mehrwert+"/"+strafe+"/"+aufwand+"/"+risiko;
+    }
+    public void prioBerechnen(){
+        if(this.mehrwert==null||strafe==null||aufwand==null||risiko==null){
+            System.out.println("mehrwert,strafe,aufwand oder risiko sind null");
+        }else {
+            this.prio = (mehrwert + strafe) / (aufwand + risiko);
+        }
     }
 
+   @Override
+   public Integer returnPrio(){
+        prioBerechnen();
+        return this.prio;
+    }
 }

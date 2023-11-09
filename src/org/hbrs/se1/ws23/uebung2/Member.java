@@ -8,4 +8,5 @@ public interface Member {
      */
     
     public Integer getID();
+    public Integer returnPrio();
 }

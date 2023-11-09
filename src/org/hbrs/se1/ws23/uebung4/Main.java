@@ -7,7 +7,10 @@ import org.hbrs.se1.ws23.uebung3.PersistenceException;
 import org.hbrs.se1.ws23.uebung3.PersistenceStrategyStream;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
+
 
 public class Main {
     static Scanner scanner;
@@ -18,7 +21,7 @@ public class Main {
         container=Container.getInstance();
         container.setStrategy(new PersistenceStrategyStream<Member>());
             while (true) {
-                System.out.print("Gib einen Befehl ein: ");
+                System.out.print("Gib einen Befehl ein, help fuer befehlsmenue: ");
                 String eingabe = scanner.nextLine();
 
                 // Hier kannst du die Verarbeitung der Eingabe implementieren, z.B. aufteilen in Befehl und Parameter.
@@ -44,6 +47,7 @@ public class Main {
                         userStory.setAufwand(scanner.nextInt());
                         System.out.println("gib risiko");
                         userStory.setRisiko(scanner.nextInt());
+                        userStory.prioBerechnen();
                         scanner.nextLine();
                         try {
                             container.addMember(userStory);
@@ -66,11 +70,36 @@ public class Main {
                         }
                         break;
                     case "dump":
+                        dumpNachPrio();
                         //zu schwer zum jetzt machen
                         break;
                     case "search":
                         searchProject(parameter);
                         break;//suche US nach projekten. Projektname wird als Parameter uebergeben
+                    case "help":
+                        //alle befehle anzeigen.
+                        System.out.println("all commands in lowercase");
+                        System.out.println("[command] [parameter]");
+                        System.out.println("commands are :");
+                        System.out.println("to create a new US just type:enter");
+                        System.out.println("to store in Container:store");
+                        System.out.println("to load stored files:load");
+                        System.out.println("to show all US in order of importance:dump");
+                        System.out.println("to search for all US with same project, project as parameter:search [param]");
+                        System.out.println("to exit the console type:exit");
+                        break;
+                    case "exit":
+                        System.out.println("wollen sie das programm wirklich beenden ohne zu speichern (Y/N)?");
+                        if(scanner.nextLine().equals("Y")){
+                            scanner.close();
+                            return;
+                        }else{
+                            System.out.println("abgebrochen");
+                            break;
+                        }
+                    case "print":
+                        System.out.println(container.getCurrentList().toString());
+                        break;
                     default:
                         System.out.println("Unbekannter Befehl: " + befehl);
                         break;
@@ -86,6 +115,15 @@ public class Main {
             }else{
                 System.out.println("no matching projects");
             }
+        }
+    }
+    public static void dumpNachPrio(){
+        ArrayList<Member> userStories=(ArrayList<Member>) container.getCurrentList();
+        List<Member> sortiertNachPrio=userStories.stream()
+                .sorted(Comparator.comparingInt(Member::returnPrio))
+                .toList();
+        for(Member member:sortiertNachPrio){
+            System.out.println("Prio absteigend: "+member);
         }
     }
 }
