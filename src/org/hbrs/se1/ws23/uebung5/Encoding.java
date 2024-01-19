@@ -8,4 +8,7 @@ public enum Encoding {
     Encoding(String value) {
         this.value = value;
     }
+    public String getVal(){
+        return value;
+    }
 }
